@@ -14,6 +14,7 @@
 <script>
 
     $(function() {
+<!---Registers a button when on click performs a get request and console.logs the data-->
         $('#btn').on("click", function() {
             $.get("https://dog.ceo/api/breeds/image/random", function(data) {
                 console.log("Data: " + JSON.stringify(data));
