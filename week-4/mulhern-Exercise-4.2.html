@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment name</title>
+
+    <!-- jQuery reference -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+<!----Button that says click me---->
+<button id="btn">Click Me</button>
+<script>
+
+    $(function() {
+        $('#btn').on("click", function() {
+            $.get("https://dog.ceo/api/breeds/image/random", function(data) {
+                console.log("Data: " + JSON.stringify(data));
+            })
+        });
+    });
+
+</script>
+
+</body>
+</html>
