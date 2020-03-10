@@ -21,6 +21,7 @@ Description: This is: Put and Delete requests with Ajax.
 <script>
 
     $(function() {
+// On click the button performs a delete request and prints out the data
         $('#btn').on("click", function(data, status) {
             $.ajax({
                 url: "http://httpbin.org/delete",
