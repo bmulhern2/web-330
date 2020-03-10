@@ -1,10 +1,10 @@
-/*
+<!---
 Title: Exercise 4.3
 Author: Professor Krasso
 Date: 10 March 2020
 Modified By: Brendan Mulhern
 Description: This is: Put and Delete requests with Ajax.
-*/
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,15 @@ Description: This is: Put and Delete requests with Ajax.
 
     $(function() {
         $('#btn').on("click", function(data, status) {
-            $.ajax 
+            $.ajax({
+                url: "http://httpbin.org/delete",
+                dataType: "json",
+                type: "DELETE",
+                data: {firstName: "Brendan", lastName: "Mulhern", age: 27},
+                success: function(data, status) {
+                    console.log("First Name: " + data.form.firstName + " Last Name: " + data.form.lastName + " Age: " + data.form.age )
+                }
+            })
         });
     });
 
