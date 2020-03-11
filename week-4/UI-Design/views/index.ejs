@@ -1,0 +1,49 @@
+<html>
+    <head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
+    <style>
+    * {
+        margin: -11px;
+        padding: 0px;
+    } html {
+        text-align: center;
+    } nav {
+        background-color: orange;
+        color: black;
+    } input {
+        margin-top: 20px;
+        text-align: center;
+    } body {
+        background-color: aquamarine;
+    } button {
+        margin-top: 25px;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <body>
+        <nav class="bg-dark">
+            <h1 class="text-light">Portfolio</h1>
+        </nav>
+      <div id="Output"></div>
+      <button id="back">Back</button>
+      <button id="forward">Forward</button>
+      <script>
+      $.get('/api', (data) => {
+         var n = 1;
+         function output(n) {
+         $('#back').on("click", back())
+         function back(n) {
+             n = n - 1;
+         }
+         $('#Output').html("<h1><a href='" + data[n].link + "' target=_blank_>" + data[n].name + "</a></h1>" + "<img id='image'></img>");
+         $('#image').attr("src", data[n].image);
+         $('#image').attr("height", "500px");
+         $('#image').attr("width", "500px");
+         }
+         output(n);
+        });
+      </script> 
+    </body>
+</html>
