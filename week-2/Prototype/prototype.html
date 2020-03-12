@@ -24,13 +24,30 @@
 <h2>Portfolio Project</h2>
 </nav>
 <h2 id="Portfolio">This is my portfolio:</h2>
-<div id="element">
-<a id="link" href="https://bmulhern2.github.io/MichaelMulhernBiography/" target="_blank"><h1>bioSite</h1></a>
-<img src="bioSite.png"></img>
-<br>
-<br>
+<div id="output">
+
 <button id="btn1">Previous</button>
 <button id="btn2">Next</button>
 </div>
 </body>
+<script>
+var projects = {
+    {
+   "name": "bioSite"
+   "link": "https://bmulhern2.github.io/MichaelMulhernBiography/",
+   "image: ""bioSite.png"
+    },
+    {
+   "name": "web-330",
+   "link": "https://github.com/bmulhern2/web-330",
+   "image": "web-330.png"
+    }
+}
+function project(name, link, image) {
+    document.write("<h1><a id='link'>" + project.name + "</h1></a>");
+}
+project();
+// Link
+// Image
+</script>
 </html>
