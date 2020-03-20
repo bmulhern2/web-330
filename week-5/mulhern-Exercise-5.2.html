@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5.2 - The Proxy Pattern</title>
+
+    <!-- jquery Reference Library -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<style>
+* {
+    margin: 0px;
+    padding: 0px;
+} html {
+    text-align: center;
+} nav {
+    background: blue;
+    color: white;
+} button {
+    margin-top: 10px;
+} body {
+    color: black;
+    background-color: gray;
+} #output {
+    margin-top: 10px;
+    font-size: 10vh;
+}
+
+</style>
+<body>
+<nav>
+<h2>Car</h2>
+</nav>
+<button id="button">Click Me</button>
+<span id="output"></span>
+<script>
+   var car = {
+       make: "Volvo",
+       model: "S60",
+       display: function() {
+           $("#output").html("");
+           $("#output").append("<br /> Car: " + this.make + " " + this.model);
+       }
+   }
+   $('#button').click($.proxy(car, "display"));
+</script>
+</body>
+</html>
