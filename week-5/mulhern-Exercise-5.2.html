@@ -1,3 +1,10 @@
+<!--
+Title: Exercise 5.2
+Author: Professor Krasso
+Date: 20 March 2020
+Modified By: Brendan Mulhern
+Description: This is: Outputing code with a Proxy.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,12 +35,15 @@
 
 </style>
 <body>
+<!--- Nav Bar -->
 <nav>
 <h2>Car</h2>
 </nav>
+<!---- Button and Span Tags-->
 <button id="button">Click Me</button>
 <span id="output"></span>
 <script>
+// Object declaration and function definition
    var car = {
        make: "Volvo",
        model: "S60",
@@ -42,6 +52,7 @@
            $("#output").append("<br /> Car: " + this.make + " " + this.model);
        }
    }
+   // Proxy
    $('#button').click($.proxy(car, "display"));
 </script>
 </body>
