@@ -4,7 +4,7 @@
 ; Author: Professor Krasso
 ; Date: 31 March 2020
 ; Modified By: Brendan Mulhern
-; Description: This is another example of knockout.js observables function.
+; Description: This is data-binding with knockout.js
 ;===========================================
 ------>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
     <!-- JavaScript Libraries -->
     <script src="../knockout-3.5.1.js"></script>
 </head>
-<body>
+<body class="bg-light">
 <div role="main" class="container">
 <h2 class="text-center bg-dark text-light">The "foreach" binding</h2>
 <table class="table table-dark table-striped table-hover">
@@ -47,7 +47,7 @@ function TextbookViewModel() {
     {title: "Learning Javascript Design Patterns",price: 10.01},
     {title: "Express in Action",price: 20.02},
     {title: "Javascript For Beginners",price: 30.03},
-    {title: "Algorithyms for Beginners",price: 40.04}
+    {title: "Algorithms for Beginners",price: 40.04}
     ])};
 ko.applyBindings( new TextbookViewModel());
 </script>

@@ -1,0 +1,42 @@
+<!----
+============================================
+; Title: Discussion Board 7.1
+; Author: Professor Krasso
+; Date: 1 April 2020
+; Modified By: Brendan Mulhern
+; Description: This is an example of Knockout.js's custom bindings.
+;===========================================
+------>
+<html>
+<head>
+<title>Knockout.js's Custom Bindings</title>
+<script src="../knockout-3.5.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+} html {
+    background-color: gray;
+    color: white;
+    text-align: center;
+} nav {
+    background-color: lightblue;
+} button {
+    margin-top: 10vh;
+}
+</style>
+</head>
+<body>
+<nav>
+<h1>Knockout.js's Custom Bindings</h1>
+</nav>
+<div><div>
+<script>
+ko.bindHandlers.myBinding = {
+   
+};
+ko.applyBindings(myBinding);
+</script>
+</body>
+</html>
