@@ -1,0 +1,19 @@
+* {
+    margin: -11px;
+    padding: 0px;
+} html {
+    text-align: center;
+} nav {
+    background-color: orange;
+    color: black;
+} input {
+    margin-top: 20px;
+    text-align: center;
+} body {
+    background-color: aquamarine;
+} button {
+    margin-top: 25px;
+} #intro {
+    background-color: white;
+    color: blue;
+}

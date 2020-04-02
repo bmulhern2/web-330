@@ -31,12 +31,17 @@
 <nav>
 <h1>Knockout.js's Custom Bindings</h1>
 </nav>
-<div><div>
+<h1 data-bind: "myBinding: myValue"><h1>
 <script>
+var myValue = {
+    firstName: "Greatest",
+    lastName: "Ever"
 ko.bindHandlers.myBinding = {
-   
+   update: function() {
+       this.firstName + " " + this.lastName;
+   }};
 };
-ko.applyBindings(myBinding);
+ko.applyBindings(myBinding(myValue));
 </script>
 </body>
 </html>
