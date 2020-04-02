@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Assignment 7.4</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+    <script src="../knockout-3.5.1.js"></script>
+</head>
+<body class="text-center">
+<table>
+    <thead>
+        <tr><th class="text-center">Tutorials On Point</th></tr>
+    </thead>
+    <tbody data-bind="foreach: tutorial">
+        <tr>
+            <td><a data-bind="text: url" target="_blank"></a></td>
+            <td data-bind="text: title"></td>
+            <td data-bind="text: description"></td>
+        </tr>
+    </tbody>
+</table>
+<script>
+var tutorial = [
+    {
+        url: "https://learning.oreilly.com/library/view/flask-web-development/9781491991725/",
+        title: "Flask Web Development",
+        description: "This is a book where you learn how to develop the web with Flask"
+    },
+    {
+        url: "https://learning.oreilly.com/library/view/learning-sql-3rd/9781492057604/",
+        title: "Learning SQL, 3rd Edition",
+        description: "This is a book where one learns how to develop with SQL"
+    },
+    {
+        url: "https://learning.oreilly.com/library/view/laravel-up/9781492041207/",
+        title: "Laravel: Up & Running, 2nd Edition",
+        description: "This is a book of which introduces php's best known framework: Laravel"
+    },
+    {
+        url: "https://learning.oreilly.com/library/view/ruby-on-rails/9780136702726/",
+        title: "Ruby on Rails Tutorial, 6th Edition",
+        description: "This is a book of which describes the best practices for learning the Ruby on Rails framework"
+    },
+    {
+        url: "https://learning.oreilly.com/library/view/hands-on-microservices-with/9781789613476/",
+        title: "Hands-On Microservices with Spring Boot and Spring Cloud",
+        description: "This is another tutorial book focused on the Spring Boot Framework"
+    }
+];
+ko.applyBindings(tutorial);
+</script>
+
+</body>
+</html>
