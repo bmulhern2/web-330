@@ -12,15 +12,33 @@
 
     <!-- JavaScript Libraries -->
     <script src="../knockout-3.5.1.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    } html {
+        text-align: center;
+    } h1 {
+        background-color: lightblue;
+        color: white;
+    } body {
+        background-color: white;
+        color: blue;
+        text-align: center
+    }
+    </style>
 </head>
 <body class="text-center">
-<table>
+ <h1 class="text-center">Tutorials On Point</h1>
+<table class="table bg-light">
     <thead>
-        <tr><th class="text-center">Tutorials On Point</th></tr>
+    <tr>
+        <th>URL</th><th>Title</th><th>Description</th>
+    </tr>
     </thead>
     <tbody data-bind="foreach: tutorial">
         <tr>
-            <td><a data-bind="text: url" target="_blank"></a></td>
+            <td data-bind="text: url"></td>
             <td data-bind="text: title"></td>
             <td data-bind="text: description"></td>
         </tr>
