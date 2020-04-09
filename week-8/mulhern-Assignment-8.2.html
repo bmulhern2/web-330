@@ -1,10 +1,10 @@
 <!----
 ============================================
-; Title: Exercise 8.3
+; Title: Assignment 8.4
 ; Author: Professor Krasso
 ; Date: 9 April 2020
 ; Modified By: Brendan Mulhern
-; Description: This is an example of Knockout.js's update and delete.
+; Description: This is an example of Knockout.js's CRUD operations.
 ;===========================================
 ------>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Exercise 8.3</title>
+    <title>Assignment 8.4</title>
 
     <!-- Stylesheet - Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
@@ -26,73 +26,71 @@
     <script src="../knockout-3.5.1.js"></script>
 </head>
 <body>
-<nav class="bg-dark text-center">
-    <h1 class="text-light">Employee List</h1>
+<nav class="text-center bg-light">
+    <h1 class="text-dark">Employee List</h1>
 </nav>
-<table class="table table-light table-striped table-hover text-center">
+<div class="text-center">
+<input type="text" name="employee" placeholder="Employee"></input>
+<input type="submit"></input>
+<table class="table table-light text-dark table-striped table-hover">
     <thead>
-        <tr class="text-center">
+        <tr>
             <th>EmployeeId</th>
             <th>Name</th>
-            <th>Function</th>
+            <th>Functions</th>
         </tr>
     </thead>
     <tbody data-bind="foreach: Employees">
         <tr>
             <td data-bind="text: Id"></td>
             <td data-bind="text: Name"></td>
-        <td>
-        <span>
-            <a href="#" class="btn btn-success" data-bind="click: $root.edit">
-            <i class="fa fa-pencil fa-lg">EDIT</i></a>
-            </span>
-            <span>
-                <a href="#" class="btn btn-danger" data-bind="click: $root.remove">
-                    <i class="fa fa-trash-o fa-lg"></i>DELETE
-                </a>
-            </span>
-        </span>
+            <td>
+                <span>
+                    <a href="#" class="btn btn-success" data-bind="click: $root.edit">
+                        <i class="fa fa-pencil fa-lg"></i>EDIT
+                    </a>
+                </span>
+                <span>
+                    <a href="#" class="btn btn-danger" data-bind="click: $root.remove">
+                        <i class="fa fa-trash-o fa-lg"></i>DELETE
+                    </a>
+                </span>
+            </td>
+        </tr>
     </tbody>
 </table>
-
+</div>
 <script>
-function Employee(id, name) {
-    this.Id = id;
-    this.Name = name;
-}
-var employeeList = [
-    new Employee(1, "Douglas"),
-    new Employee(2, "Andrew"),
-    new Employee(3, "Mike"),
-    new Employee(4, "Patrick"),
-    new Employee(5, "Dillon")
-];
-function EmployeeViewModel() {
+function PayrollViewModel() {
     this.Id = ko.observable("");
     this.Name = ko.observable("");
-    var Employee = {
-        Id: this.Id,
-        Name: this.Name
-    }
+    this.Employee = function() {
+        this.Id = id;
+        this.Name = name;
+    };
     this.Employee = ko.observable("");
-    this.Employees = ko.observableArray(employeeList);
+    this.Employees = ko.observable("");
     this.edit = function(Employee) {
         this.Employee(Employee);
-    }
+    };
     this.remove = function(Employee) {
         this.Employee.remove(Employee);
-    }
+    };
     this.cancel = function() {
         this.Employee(null);
-    }
+    };
     this.update = function() {
-        var employee_1 = this.Employee();
+        Employee_1 = this.Employee();
         this.Employees.remove(this.Emplyee());
-        this.Employees.push(employee_1);
+        this.Employees.push(Employee_1);
     }
-}
-ko.applyBindings(new EmployeeViewModel());
+    this.add = function() {
+        if((this.Employee()!=="") && (this.Employees.indexOf(this.Employee())<0)) {
+            this.Employees.push(Employee());
+        } else {
+            console.log("Error");
+        }
+    }};
 </script>
-
 </body>
 </html>
