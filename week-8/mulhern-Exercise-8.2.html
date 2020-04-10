@@ -36,12 +36,14 @@
 <script>
 function EmployeeViewModel() {
     this.nameToAdd = ko.observable("");
-    this.employeeList = ko.observable("");
+    this.employeeList = ko.observableArray(["Brendan", "Doug"]);
     this.error = ko.observable("");
 
     this.add = function() {
-        this.employeeList.push(this.nameToAdd());
-        this.nameToAdd("");
+        if((this.nameToAdd()!=="") && (this.employeeList.indexOf(this.nameToAdd())<0)) {
+            this.error("");
+            this.employeeList.push(this.nameToAdd());
+        }
     }};
 ko.applyBindings(new EmployeeViewModel());
 </script>
