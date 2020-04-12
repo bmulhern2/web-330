@@ -1,7 +1,7 @@
 <!----
 ============================================
 ; Title: Exercise 8.3
-; Author: Professor Krasso
+; Author: Professor Krasso, Knockoutjs.com, cdns.com
 ; Date: 9 April 2020
 ; Modified By: Brendan Mulhern
 ; Description: This is an example of Knockout.js's update and delete.
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- JavaScript Libraries -->
-    <script src="../knockout-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
 </head>
 <body>
 <nav class="bg-dark text-center">
@@ -44,17 +44,16 @@
         <td>
         <span>
             <a href="#" class="btn btn-success" data-bind="click: $root.edit">
-            <i class="fa fa-pencil fa-lg">EDIT</i></a>
+                <i class="fa fa-pencil fa-lg"></i>EDIT
+            </a>
             </span>
             <span>
                 <a href="#" class="btn btn-danger" data-bind="click: $root.remove">
                     <i class="fa fa-trash-o fa-lg"></i>DELETE
                 </a>
             </span>
-        </span>
     </tbody>
 </table>
-
 <script>
 function Employee(id, name) {
     this.Id = id;
@@ -68,27 +67,28 @@ var employeeList = [
     new Employee(5, "Dillon")
 ];
 function EmployeeViewModel() {
-    this.Id = ko.observable("");
-    this.Name = ko.observable("");
+    var self = this;
+    self.Id = ko.observable("");
+    self.Name = ko.observable("");
     var Employee = {
-        Id: this.Id,
-        Name: this.Name
+        Id: self.Id,
+        Name: self.Name
     }
-    this.Employee = ko.observable("");
-    this.Employees = ko.observableArray(employeeList);
-    this.edit = function(Employee) {
-        this.Employee(Employee);
+    self.Employee = ko.observable("");
+    self.Employees = ko.observableArray(employeeList);
+    self.edit = function(Employee) {
+        self.Employee(Employee);
     }
-    this.remove = function(Employee) {
-        this.Employee.remove(Employee);
+    self.remove = function(Employee) {
+        self.Employees.remove(Employee);
     }
-    this.cancel = function() {
-        this.Employee(null);
+    self.cancel = function() {
+        self.Employee(null);
     }
-    this.update = function() {
-        var employee_1 = this.Employee();
-        this.Employees.remove(this.Emplyee());
-        this.Employees.push(employee_1);
+    self.update = function() {
+        var employee_1 = self.Employee();
+        self.Employees.remove(self.Employee());
+        self.Employees.push(employee_1);
     }
 }
 ko.applyBindings(new EmployeeViewModel());
