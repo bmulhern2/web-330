@@ -1,0 +1,62 @@
+<!----
+============================================
+; Title: Assignment 9.2
+; Author: Professor Krasso, cdnjs.com
+; Date: 14 April 2020
+; Modified By: Brendan Mulhern
+; Description: This is an example of Backbone.js's each function.
+;===========================================
+------>
+<html>
+    <head>
+        <title></title>
+    <style>
+    </style>
+    </head>
+    <script type="text/javascript" src="backbone.js"></script>
+    <body>
+        <table class="table table-dark table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+                <script>
+            function Employee(id, name, salary) {
+                this.id = id;
+                this.name = name;
+                this.price = price;
+            }
+            var EmployeeModel = Backbone.Model.extend({
+                defaults: {
+                    id: "",
+                    name: "",
+                    salary: 0
+                }
+            })
+            var EmployeeCollection = Backbone.Collection.extend({
+                model: EmployeeModel
+            })
+            var Employees = new EmployeeCollection();
+            Employees.add(new Employee(1, "Doug Crox", 20000));
+            Employees.add(new Employee(2, "Brendan Xeno", 50000));
+            Employees.add(new Employee(3, "Grace Potter", 25000));
+            Employees.add(new Employee(4, "Patrive Groove", 5000));
+            Employees.add(new Employee(5, "Mike Keys", 5000000));
+            
+            Employees.each(function(employee) {
+                $('#table-body').appned(
+                    '<tr>' +
+                    '<td>' + employee.get('id') + '</td>' +
+                    '<td>' + employee.get('name') + '</td>' +
+                    '<td>' + employee.get('salary') + '</td>' +
+                    '</tr>'
+                )
+            })
+        </script>
+    </body>
+</html>
